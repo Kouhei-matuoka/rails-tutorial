@@ -40,13 +40,15 @@ GEM
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (7.1.4)
-    autoprefixer-rails (10.0.3.0)
+    autoprefixer-rails (10.1.0.0)
       execjs
     bcrypt (3.1.11)
     bindex (0.8.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     builder (3.2.4)
     byebug (11.1.3)
     coffee-rails (4.2.2)
@@ -60,10 +62,12 @@ GEM
     crass (1.0.6)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.8.5)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
@@ -164,6 +168,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -171,12 +176,14 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.7)
+  bootstrap-will_paginate (= 1.0.0)
   byebug
   coffee-rails (~> 4.2)
+  faker (= 1.7.3)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  minitest
+  minitest (~> 5.10.1)
   minitest-reporters
   puma (~> 3.0)
   rails (~> 5.0.3)
@@ -188,6 +195,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate (= 3.1.5)
 
 BUNDLED WITH
    2.1.4
