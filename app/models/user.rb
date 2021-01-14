@@ -1,16 +1,28 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
+                                  
   has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
                                    dependent: :destroy
+                                   
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
+  
+  devise :omniauthable, omniauth_providers: %i(line)
+
+  has_many :social_profiles, dependent: :destroy
+  
+  def social_profile(provider)
+    social_profiles.select{ |sp| sp.provider == provider.to_s }.first
+  end
   
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -43,6 +55,14 @@ class User < ApplicationRecord
   
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  def self.from_omniauth(auth)
+    user = find_or_create_by(uid: auth.uid, provider: auth.provider) do |user|
+      user.email = "#{auth.uid}.#{auth.provider}.#{SecureRandom.hex(8)}@example.com"
+      user.password = Devise.friendly_token[0, 20]
+    end
+    user
   end
   
   # アカウントを有効にする

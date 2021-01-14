@@ -1,0 +1,10 @@
+production: &production
+  line:
+    key: '1655284498'
+    secret: '2881d3ffc0948330e8b4b839d39cbe7d'
+development: &development
+  line:
+    key: '1655284498'
+    secret: '2881d3ffc0948330e8b4b839d39cbe7d'
+test:
+  <<: *development

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201225132352) do
+ActiveRecord::Schema.define(version: 20210103150956) do
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -32,6 +32,26 @@ ActiveRecord::Schema.define(version: 20201225132352) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "social_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "description"
+    t.text     "other"
+    t.text     "credentials"
+    t.text     "raw_info"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["provider"], name: "index_social_profiles_on_provider", unique: true
+    t.index ["uid"], name: "index_social_profiles_on_uid", unique: true
+    t.index ["user_id"], name: "index_social_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -44,6 +64,8 @@ ActiveRecord::Schema.define(version: 20201225132352) do
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
+    t.string   "uid"
+    t.string   "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
