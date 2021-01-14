@@ -1,0 +1,44 @@
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+  <body id="skin_trobulues">
+  <h1>Q3あなたの一番気になる肌の悩みはなんですか？</h1>
+  
+  <style>
+    label {
+        display: inline;
+        text-align: right;
+    }
+ 
+    input {
+        text-align: left;
+    }
+   </style>
+   
+　<%= form.hidden_field :third_answer, value: 'a' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">A.肌全体がテカっている
+      </label>
+    </div>
+<% end %>
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+
+  <%= form.hidden_field :third_answer, value: 'b' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">B.テカる部分と乾燥している部分がある
+      </label>
+    </div>
+<% end %>
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+  <%= form.hidden_field :third_answer, value: 'c' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">C.肌全体が乾燥している
+      </label>
+    </div>
+<% end %>
+</body> 

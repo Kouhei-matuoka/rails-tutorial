@@ -1,0 +1,44 @@
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+  <body id="acne">
+  <h1>Q2ニキビはできやすいですか？</h1>
+  
+  <style>
+    label {
+        display: inline;
+        text-align: right;
+    }
+ 
+    input {
+        text-align: left;
+    }
+   </style>
+
+  <%= form.hidden_field :second_answer, value: 'a' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">A.できやすい
+      </label>
+　 </div> 
+<% end %>
+
+  <%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+  <%= form.hidden_field :second_answer, value: 'b' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">B.たまにできる
+      </label>
+    </div>
+<% end %>
+
+
+  <%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+  <%= form.hidden_field :second_answer, value: 'c', class: "btn btn-primary" %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">C.あまりできない
+      </label>
+    </div>
+<% end %>
+</body> 

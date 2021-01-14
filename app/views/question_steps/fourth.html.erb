@@ -1,0 +1,45 @@
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+   <body id="Tightening_of_the_skin">
+   <h1>Q4.洗顔後の肌のつっぱり感はありますか?</h1>
+   
+   <style>
+    label {
+        display: inline;
+        text-align: right;
+    }
+ 
+    input {
+        text-align: left;
+    }
+   </style>
+
+    <%= form.hidden_field :fourth_answer, value: 'a' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">A.いつもある
+      </label>
+    </div>
+<% end %>
+
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+    <%= form.hidden_field :fourth_answer, value: 'b' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">B.たまにある
+      </label>
+    </div>
+<% end %>
+
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+    <%= form.hidden_field :fourth_answer, value: 'c' %>
+    <div>
+      <label>
+        <input type="checkbox" name="my-check-list">C.まったくない
+      </label>
+    </div>
+<% end %>
+</body> 

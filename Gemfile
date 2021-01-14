@@ -19,7 +19,7 @@ gem 'omniauth'
 gem 'omniauth-line-openid-connect'
 gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
-
+gem 'wicked'
 gem 'sqlite3', '~> 1.3.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

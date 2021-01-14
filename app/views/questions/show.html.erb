@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h2>あなたの肌タイプは</h2>
+
+
+<% if @question.calc_score <= 4 %>
+<body id="dry">
+<h1>乾燥肌でした</h1>
+肌のうるおい成分が不足お肌の状態です。
+洗顔後にアミノ酸やヒアルロン酸などの成分が配合されている化粧水でしっかりと水分を補い、
+そのあとに高保湿の乳液で顔全体の水分を蒸発させることを防ぎます。
+</body>
+<br>
+
+
+
+<%= link_to "あなたにオススメの化粧品はこちら", dry_skin_user_path, class: "btn-primary" %>
+
+
+<% elsif @question.calc_score >= 5 && @question.calc_score <= 7 %>
+<body id="normal">
+<h1>普通肌でした</h1>
+油分・水分のバランスが良く健康的なお肌状態です。
+ホルモンバランスの乱れや、不規則な生活で肌状態が変化します。
+刺激のない添加物などがふくまれていない化粧水を選びましょう。
+</body>
+<br>
+
+<%= link_to "あなたにオススメの化粧品はこちら", normal_skin_user_path, class: "btn-primary" %>
+
+
+<% elsif @question.calc_score >= 8 && @question.calc_score <= 10 %>
+<body id="mixed">
+<h1>混合肌でした</h1>
+皮脂量が多く、水分量が少ないお肌状態です。
+洗浄力が強すぎず弱すぎないもので洗顔をして
+乾燥が気になる部分に乳液をつけてあげましょう。
+</body>
+<br>
+
+<%= link_to "あなたにオススメの化粧品はこちら", mixed_skin_user_path, class: "btn-primary" %>
+
+<% else @question.calc_score >= 11 && @question.calc_score <= 12 %>
+<body id="oily">
+<h1>脂性肌でした</h1>
+肌がテカったり、べたつくお肌状態です。
+油分の少ない洗顔料で顔を洗い、しっかりと化粧水をつけたあとに油分を使っていないオイルフリーの乳液で保湿するのがおすすめです。
+</body>
+<br>
+
+<%= link_to "あなたにオススメの化粧品はこちら", oily_skin_user_path, class: "btn-primary" %>
+
+<% end %>
+
+<br>
+
+
+
+<br>
+
+<%= link_to 'もう一度診断する', new_question_path, class: "btn btn-primary" %>

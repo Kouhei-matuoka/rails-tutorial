@@ -1,0 +1,44 @@
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+   <p>Q1.起きたときの肌の状態を教えてください。</p>
+   
+   <%= form.hidden_field :first_answer, value: 'a' %>
+   <div>
+     <label>
+     <input type="checkbox" name="my-check-list"> A.べたべたしている(脂っぽい)
+     </label>
+   </div>
+   <div>
+  <label>
+   <input type='checkbox'>
+   <span>A.べたべたしている(脂っぽい)</span>
+  <label>
+</div>
+<% end %>
+
+
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+   <%= form.hidden_field :first_answer, value: 'b' %>
+   <div>
+     <label>
+       <input type="checkbox" name="my-check-list">B.べたべたも乾燥もしていない
+     </label>
+   </div>
+<% end %>
+
+
+
+<%= form_for @question, url: wizard_path, method: :put do |form| %>
+
+    <%= form.hidden_field :first_answer, value: 'c' %>
+    <div>
+      <label>
+          <input type="checkbox" name="my-check-list">C.乾燥している
+      </label>
+    </div>
+<% end %>
+
+<%= link_to "次へ", question_steps_path %>
+
